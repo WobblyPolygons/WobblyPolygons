@@ -1,1 +1,214 @@
-Test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gavin & Stacey Tour Guide</title>
+    <!-- Responsive Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <h1 class="text-center">Welcome to the Gavin & Stacey Tour Guide</h1>
+        <p class="lead text-center">Discover the iconic filming locations from the beloved British sitcom "Gavin & Stacey". Explore the map to find where your favorite scenes were shot, from Barry Island to Essex and beyond.</p>
+
+        <!-- Featured Locations Grid -->
+        <h2 class="mt-5 text-center">Featured Locations</h2>
+        <div class="row justify-content-center">
+            <!-- Location cards -->
+            <!-- Each card takes up col-md-4 (i.e., 3 cards per row on md and larger screens) -->
+            <!-- Make sure to update the data-location attribute with the correct location title -->
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="images/staceys_house.jpg" class="card-img-top fixed-image" alt="Stacey's House">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Stacey's House</h5>
+                        <p class="card-text">Stacey's home in Barry Island.</p>
+                        <button class="btn btn-primary mt-auto more-info-btn" data-location="Stacey's House">More Info</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat similar blocks for other featured locations -->
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="images/marcos_cafe.jpeg" class="card-img-top fixed-image" alt="Marco's Cafe">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Marco's Cafe</h5>
+                        <p class="card-text">Enjoy an ice cream at Marco's Cafe.</p>
+                        <button class="btn btn-primary mt-auto more-info-btn" data-location="Marco's Cafe">More Info</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider text-center">
+        <h2 class="mb-0">Interactive Tour Map</h2>
+    </div>
+
+    <!-- Map Section -->
+    <section id="map-section">
+        <!-- Mobile Filters -->
+        <div class="d-lg-none p-3">
+            <!-- Filter Options -->
+            <h5>Filter Locations</h5>
+            <!-- Location Filter -->
+            <div class="mb-3">
+                <label for="area-filter-mobile" class="form-label">Location</label>
+                <select id="area-filter-mobile" class="form-select">
+                    <option value="">All Locations</option>
+                    <!-- Dynamic options -->
+                </select>
+            </div>
+            <!-- Episode Filter -->
+            <div class="mb-3">
+                <label for="episode-filter-mobile" class="form-label">Episode</label>
+                <select id="episode-filter-mobile" class="form-select">
+                    <option value="">All Episodes</option>
+                    <!-- Dynamic options -->
+                </select>
+            </div>
+            <!-- Search Box -->
+            <div class="mb-3">
+                <input type="text" id="search-box-mobile" class="form-control" placeholder="Search Locations...">
+            </div>
+            <!-- Locations Drop-down Menu -->
+            <div class="mb-3">
+                <label for="locations-select-mobile" class="form-label">Select a Location</label>
+                <select id="locations-select-mobile" class="form-select">
+                    <option value="">-- Select a Location --</option>
+                    <!-- Location options will be added dynamically -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Mobile Action Bar -->
+        <div id="mobile-action-bar" class="d-lg-none">
+            <div class="action-bar-content text-white d-flex flex-column align-items-center">
+                <!-- Location Title -->
+                <h5 id="mobile-location-title" class="my-2">Location Name</h5>
+                <!-- Buttons -->
+                <div class="d-flex justify-content-around w-100">
+                    <!-- More Info Button -->
+                    <button id="mobile-more-info-button" class="btn btn-secondary me-2">
+                        More Info
+                    </button>
+                    <!-- Street View Toggle Button -->
+                    <button id="mobile-street-view-toggle" class="btn btn-primary">
+                        Street View
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map and Sidebar -->
+        <div class="row flex-nowrap" style="height: 100%; margin: 0;">
+            <!-- Sidebar for desktop view -->
+            <div class="col-md-4 col-lg-3 d-none d-lg-flex flex-column" id="sidebar">
+                <!-- Filter Options -->
+                <div class="p-3">
+                    <h5>Filter Locations</h5>
+                    <!-- Location Filter -->
+                    <div class="mb-3">
+                        <label for="area-filter" class="form-label">Location</label>
+                        <select id="area-filter" class="form-select">
+                            <option value="">All Locations</option>
+                            <!-- Dynamic options -->
+                        </select>
+                    </div>
+                    <!-- Episode Filter -->
+                    <div class="mb-3">
+                        <label for="episode-filter" class="form-label">Episode</label>
+                        <select id="episode-filter" class="form-select">
+                            <option value="">All Episodes</option>
+                            <!-- Dynamic options -->
+                        </select>
+                    </div>
+                    <!-- Search Box -->
+                    <div class="mb-3">
+                        <input type="text" id="search-box" class="form-control" placeholder="Search Locations...">
+                    </div>
+                    <!-- Locations Drop-down Menu -->
+                    <div class="mb-3">
+                        <label for="locations-select" class="form-label">Select a Location</label>
+                        <select id="locations-select" class="form-select">
+                            <option value="">-- Select a Location --</option>
+                            <!-- Location options will be added dynamically -->
+                        </select>
+                    </div>
+                </div>
+                <!-- Location Info Section -->
+                <div id="location-info" class="p-3 flex-grow-1 overflow-auto">
+                    <h5 id="location-info-title">Select a location</h5>
+                    <div id="location-info-content">
+                        <p>Choose a location from the menu above to see more details.</p>
+                    </div>
+                </div>
+                <!-- Buttons at the bottom -->
+                <div class="p-3">
+                    <!-- More Info Button -->
+                    <button id="more-info-button" class="btn btn-secondary mb-2" style="width: 100%;" disabled>
+                        More Info
+                    </button>
+                    <!-- Street View Toggle Button -->
+                    <button id="street-view-toggle-desktop" class="btn btn-primary" style="width: 100%;" disabled>
+                        Street View
+                    </button>
+                </div>
+            </div>
+            <!-- Map Area -->
+            <div class="col-md-8 col-lg-9 p-0" id="map-container">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Info Modal -->
+    <div class="modal fade" id="moreInfoModal" tabindex="-1" aria-labelledby="moreInfoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+                <h5 class="modal-title" id="moreInfoModalLabel">Location Title</h5>
+                <p id="moreInfoModalSubtitle" class="mb-0"><small>Location Area</small></p>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex">
+            <!-- Image on the left -->
+            <div class="me-3" style="flex: 1;">
+                <img id="moreInfoModalImage" src="" alt="Location Image" class="img-fluid">
+            </div>
+            <!-- Information on the right -->
+            <div style="flex: 2;">
+                <p id="moreInfoModalDescription">Detailed description goes here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <span>&copy; 2024 Gavin & Stacey Tour Guide. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <!-- Include your custom scripts -->
+    <!-- Include your scripts.js file -->
+    <script src="scripts.js" defer></script>
+    <!-- Include Google Maps JavaScript API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGs9mdXelHO72be-vBplNJfMyuOjnK8ao&callback=initMap&v=weekly" defer></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
